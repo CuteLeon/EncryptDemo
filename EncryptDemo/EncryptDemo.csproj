@@ -43,16 +43,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Controller\MD5Controller.cs" />
+    <Compile Include="Controller\SymmetricAlgorithmController.cs" />
+    <Compile Include="Controller\HashAlgorithmController.cs" />
     <Compile Include="DemoForm.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="DemoForm.Designer.cs">
       <DependentUpon>DemoForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Interfaces\IEncrypt.cs" />
-    <Compile Include="Models\EncryptPackage.cs" />
-    <Compile Include="Models\MD5Package.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="DemoForm.resx">

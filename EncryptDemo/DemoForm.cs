@@ -6,9 +6,8 @@ using System.Drawing;
 using System.Linq;
 using System.Text;
 using System.Windows.Forms;
-using EncryptDemo.Interfaces;
+using System.Security.Cryptography;
 using EncryptDemo.Controller;
-using EncryptDemo.Models;
 
 namespace EncryptDemo
 {
@@ -19,25 +18,30 @@ namespace EncryptDemo
             InitializeComponent();
         }
 
-        private void textBox1_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
-        private void textBox2_TextChanged(object sender, EventArgs e)
-        {
-
-        }
-
         private void button1_Click(object sender, EventArgs e)
         {
-            string MD5Result = string.Empty;
-            MD5Controller md5Controller = new MD5Controller();
-            MD5Result = md5Controller.Encypt(
-                new MD5Package(Encoding.UTF8),
+            textBox2.Text = new HashAlgorithmController<MD5CryptoServiceProvider>().Encypt(
+                Encoding.UTF8,
                 textBox1.Text
             );
-            textBox2.Text = MD5Result;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            textBox2.Text = new SymmetricAlgorithmController<DESCryptoServiceProvider>().Encypt(
+                "IamLeon.",
+                "Mathilda",
+                textBox1.Text
+            );
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            textBox1.Text = new SymmetricAlgorithmController<DESCryptoServiceProvider>().Decypt(
+                "IamLeon.",
+                "Mathilda",
+                textBox2.Text
+            );
         }
     }
 }
