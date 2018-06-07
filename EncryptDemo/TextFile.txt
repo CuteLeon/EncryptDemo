@@ -1,0 +1,27 @@
+﻿对称加密：
+[SymmetricAlgorithm]
+Aes : 
+DES :
+RC2 :
+TripleDES :
+        public override ICryptoTransform CreateDecryptor(byte[] key, byte[] iv);
+        public override ICryptoTransform CreateEncryptor(byte[] key, byte[] iv);
+
+哈希加密：
+[HashAlgorithm]
+SHA1 : 
+SHA256 :
+SHA384 :
+SHA512 :
+MD5 :
+        public byte[] ComputeHash(byte[] buffer);
+
+随机数生成器：
+[RandomNumberGenerator]
+//从硬件、操作系统、进程、线程等信息生成质量较高的随机数
+RNGCryptoServiceProvider :
+
+不对称加密：
+[AsymmetricAlgorithm]
+RSA :
+DSA :
